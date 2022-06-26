@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./app.css">
+    <script src="./app.js" defer></script>
+    <title>TodoList with pure js</title>
+</head>
+
+<body>
+    <div class="app">
+        <header class="header">
+            <nav class="header__nav">
+                <a href="" class="header__logo">
+                    todolist
+                </a>
+                <button class="header__toggleBtn" data-status> </button>
+            </nav>
+        </header>
+        <!-- <hr> -->
+        <main class="main">
+            <div class="main__form_div">
+                <form action="" class="main__form">
+                    <label for="task" class="main__label">Task</label>
+                    <input class="main__input" type="text" name="task" id="task" placeholder="Add Task" required />
+                    <label for="time" class="main__label">Add Date & time</label>
+                    <div class="main__datetime_div">
+                        <input class="main__input datetime" type="date" name="date" id="date"/>
+                        <input class="main__input datetime" type="time" name="time" id="time"/>
+                    </div>
+                    <label for="reminder" class="main__label reminder">Set Reminder</label>
+                    <input class="main__checkbox" type="checkbox" name="reminder" id="reminder" />
+                    <button class="main__btn btn">
+                        Save Task
+                    </button>
+                </form>
+            </div>
+            <div class="main__display">
+                <i> No task available... </i>
+            </div>
+        </main>
+        <footer class="footer">
+            <span>pasmac &copy; 2022</span>
+            <a href="/" class="footer__anchor">About</a>
+        </footer>
+
+    </div>
+
+</body>
+
+</html>
