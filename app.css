@@ -22,8 +22,8 @@ body{
 .app{
     width: 100%;
     max-width: 500px;
-    padding-inline: 10px;
-    margin-inline:auto;
+    padding: auto 10px;
+    margin:0 auto;
     background-color: rgba(255, 255, 255, .5);
     height: auto;
 }
@@ -53,7 +53,8 @@ body{
     display: flex;
     width: 100%;
     justify-content: space-between;
-    padding-inline:1em;
+    padding-right:1em;
+    padding-left: 1em;
     align-items: center;
 }
 .header__logo{
@@ -86,8 +87,9 @@ body{
     height: auto;
 }
 .main__form_div{
-    padding-inline: 1em;
-    padding-block-end: 0em;
+    padding-right: 1em;
+    padding-left: 1em;
+    padding-bottom: 0em;
     border-radius: .5em;
     border-bottom: 2px solid currentColor;
     height: auto;
@@ -97,11 +99,11 @@ body{
 }
 .main__label{
     display: block;
-    margin-block-start: 1em;
-    margin-block-end:.5em;
+    margin-top: 1em;
+    margin-bottom:.5em;
 }
 .main__label:first-of-type{
-    margin-block-start: 0em;
+    margin-top: 0em;
 }
 .main__label.reminder{
     display: inline-block;
@@ -127,7 +129,7 @@ body{
     color:#ddd;
     text-align: center;
     display: block;
-    margin-block-start: 1em;
+    margin-top: 1em;
     width: 100%;
     padding: .5em 0em;
     border-radius: .5em;

@@ -12,10 +12,10 @@ const TaskFormAndButtonToggleLogic = () => {
     }
     let toggleForm = () => {
         if (toggleBtnStatus) {
-            formDiv.style.paddingBlockEnd = "1.5em"
+            formDiv.style.paddingBottom = "1.5em"
             formDiv.style.maxHeight = "100vh"
         } else{
-            formDiv.style.paddingBlockEnd = "0em"
+            formDiv.style.paddingBottom = "0em"
             formDiv.style.maxHeight = "0vh"
         }
     }
@@ -43,7 +43,6 @@ const SetDefaultsForTaskForm = ()=>{
     
     formDate.value = `${y}-${m}-${d}`
     formTime.value = `${h}:${i}`
-        
 }
 const AddTaskLogic =()=>{
     form.onsubmit =(e)=>{
