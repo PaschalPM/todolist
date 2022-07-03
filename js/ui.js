@@ -1,4 +1,4 @@
-const form = document.forms[0]
+const todoForm = document.forms[0]
 const TaskFormAndButtonToggleLogic = () => {
     let toggleBtn = document.querySelector(".header__toggleBtn")
     let toggleBtnStatus = !!toggleBtn.dataset.status
@@ -27,8 +27,8 @@ const TaskFormAndButtonToggleLogic = () => {
 }
 const SetDefaultsForTaskForm = ()=>{
     let dObj = new Date(),
-        formDate = form.date,
-        formTime = form.time
+        formDate = todoForm.date,
+        formTime = todoForm.time
 
     let y = dObj.getFullYear().toString(),
         m = dObj.getMonth().toString(),
@@ -44,12 +44,7 @@ const SetDefaultsForTaskForm = ()=>{
     formDate.value = `${y}-${m}-${d}`
     formTime.value = `${h}:${i}`
 }
-const AddTaskLogic =()=>{
-    form.onsubmit =(e)=>{
-        e.preventDefault()
-    }
-}
+
 
 TaskFormAndButtonToggleLogic()
 SetDefaultsForTaskForm()
-AddTaskLogic()
