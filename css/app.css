@@ -95,7 +95,7 @@ body{
     height: auto;
     max-height: 0vh;
     overflow: hidden;
-    transition: all 0.5s linear 0s;
+    transition: all 0.3s linear 0s;
 }
 .main__label{
     display: block;
