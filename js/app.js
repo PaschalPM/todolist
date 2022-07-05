@@ -3,6 +3,7 @@ todoForm.addEventListener("postdata",function({detail}){
     putData(detail,()=>{
         console.log("task added");
         UpdateTasksFromDBToUI()
+        todoForm.reset()
     })
 })
 

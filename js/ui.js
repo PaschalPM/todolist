@@ -56,11 +56,13 @@ const PostTask = () => {
             console.log(errObj.msg);
             return
         }
+        let createdAt = new Date().getTime()
         let dataObj = {
             task: this.task.value,
             date: this.date.value,
             time: this.time.value,
-            reminder: this.reminder.checked
+            reminder: this.reminder.checked,
+            createdAt
         }
 
 
@@ -71,6 +73,11 @@ const PostTask = () => {
         })
         todoForm.dispatchEvent(postEvent)
 
+        todoForm.onreset =function(e){
+            e.preventDefault()
+            this.task.value = ""
+            SetDefaultsForTaskForm()
+        }
     })
 }
 const UpdateTasksFromDBToUI = () => {
@@ -78,14 +85,17 @@ const UpdateTasksFromDBToUI = () => {
     let mainDisplay = document.querySelector(".main__display")
     mainDisplay.innerHTML = ""
     getAllData((res) => {
+        res.sort((a,b)=>b.createdAt - a.createdAt)
+        console.log(res);
         if (res.length > 0) {
             mainDisplay.innerHTML = `<button id="clear">clear all</button>`
             res.forEach(({
                 task, date, time, reminder
             }) => {
+                // DateTimeParser(date, time)
                 mainDisplay.append(Card(`
                     <h1>${task}</h1>
-                    <pre>${date}</pre>
+                    <pre>${DateParser(date)} ${MonthParser(date)}, ${YearParser(date)}</pre>
                 `))
             })
             
