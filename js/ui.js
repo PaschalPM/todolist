@@ -54,6 +54,7 @@ const PostTask = () => {
 
         if (errObj.cnt > 0) {
             console.log(errObj.msg);
+            StatusBar(errObj.msg,"error")
             return
         }
         let createdAt = new Date().getTime()
@@ -88,15 +89,28 @@ const UpdateTasksFromDBToUI = () => {
         res.sort((a,b)=>b.createdAt - a.createdAt)
         console.log(res);
         if (res.length > 0) {
-            mainDisplay.innerHTML = `<button id="clear">clear all</button>`
+            mainDisplay.innerHTML = `<div class="main__trashBtn_holder">
+                                        <button class="main__trashBtn" id="clear">T icon</button>
+                                    </div>`
             res.forEach(({
-                task, date, time, reminder
+                task, date, time, reminder, createdAt
             }) => {
                 // DateTimeParser(date, time)
                 mainDisplay.append(Card(`
-                    <h1>${task}</h1>
-                    <pre>${DateParser(date)} ${MonthParser(date)}, ${YearParser(date)}</pre>
-                `))
+                    <span class="card__btn_holder"> 
+                        <button class="card__btn delete">x</button> 
+                    </span>
+                   
+                    <div style="overflow:auto">
+                        <h1 class="card__header">${task}</h1>
+                        <small>
+                            ${DateParser(date)} 
+                            ${MonthParser(date)}, 
+                            ${YearParser(date)} at 
+                            ${TimeParser(time)}
+                        </small>
+                    </div>
+                `,reminder,createdAt))
             })
             
         } else {
@@ -113,4 +127,5 @@ window.onload = function () {
     SetDefaultsForTaskForm()
     PostTask()
     UpdateTasksFromDBToUI()
+    
 }

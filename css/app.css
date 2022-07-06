@@ -15,7 +15,6 @@
     --bodyColor:rgba(130, 138, 147, 0.5);
 }
 body{
-    
     background-color: var(--bodyColor);
     background-position: center;
 }
@@ -29,7 +28,7 @@ body{
 }
 @supports (backdrop-filter: blur(10px)){
     body{
-        background-image: url("./pattern.svg");
+        background-image: url("../pattern.svg");
         background-size: 10%;
     }
     .app{
@@ -137,6 +136,7 @@ body{
 }
 .main__display{
     padding: 1em;
+    position: relative;
 }
 
 .footer{

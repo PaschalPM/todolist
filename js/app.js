@@ -3,7 +3,7 @@ todoForm.addEventListener("postdata",function({detail}){
     putData(detail,()=>{
         console.log("task added");
         UpdateTasksFromDBToUI()
-        todoForm.reset()
+        StatusBar("Added new task","success")
     })
 })
 
@@ -12,6 +12,7 @@ window.addEventListener("click",({target})=>{
     {
         clearData(()=>{
             UpdateTasksFromDBToUI()
+            StatusBar("Cleared all tasks","success")
         })
     }
 })

@@ -17,11 +17,11 @@ let formValidation = (form) => {
     let currentTimePlus5mins = dateNow.getTime() + 300000
 
     if (taskFieldValue.length < 3 || taskFieldValue > 50) {
-        errObj.msg.push("Task field value is either empty or out of range")
+        errObj.msg.push("Oops! Task field value is either empty or out of range")
         errObj.cnt++
     }
     if (taskTime < currentTimePlus5mins) {
-        errObj.msg.push("Task Time must be set atleast 5 minutes into the future")
+        errObj.msg.push("Oops! Task time must be set to atleast 5 minutes into the future")
         errObj.cnt++
     }
     return errObj
