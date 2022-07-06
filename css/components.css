@@ -11,19 +11,17 @@
 
 .card{
     background-color: #ccc;
-    padding: 1em 1.5em;
-    margin: 1em .5em;
+    padding: 1em 1em;
+    margin: 1em 0em;
     box-shadow: 2px 2px 1px #777;
     position: relative;
     border-radius: .5em;
+    width: 100%;
 }
-.card__header{
-    font-size: 1.25em;
+.card small{
+    font-size: .75em;
 }
-.card pre{
-    all:revert;
-    margin: 0em;
-}
+
 .card__btn_holder{
     position: absolute;
     top: .15em;
@@ -38,12 +36,15 @@
 
 
 .status_bar{
+
     position: fixed;
     height: 0em;
     bottom: 0px;
     left: 50%;
     display: flex;
+    width: 100%;
     align-items: center;
+    justify-content: center;
     transform: translateX(-50%);
     background-color: rgba(74, 136, 87, 0.5);
     padding: 0em 1.2em;
@@ -53,7 +54,7 @@
     color: white;
     overflow: none;
     z-index: 3;
-    font-size: .85rem;
+    font-size: .75rem;
     font-weight: 700;
 }
 

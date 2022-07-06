@@ -19,7 +19,7 @@ let StatusBar = (text, state="success")=> {
     div.classList.add(state)
     div.innerText = text   
     if(text !== ""){
-        div.style.height = "2em"
+        div.style.height = "2.5em"
     }
     setTimeout(()=>{
         div.style.height = "0em"

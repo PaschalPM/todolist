@@ -21,7 +21,7 @@ let formValidation = (form) => {
         errObj.cnt++
     }
     if (taskTime < currentTimePlus5mins) {
-        errObj.msg.push("Oops! Task time must be set to atleast 5 minutes into the future")
+        errObj.msg.push("Oops! Task time must be atleast 5 minutes into the future.")
         errObj.cnt++
     }
     return errObj

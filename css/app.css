@@ -135,7 +135,7 @@ body{
     font-weight: 700;
 }
 .main__display{
-    padding: 1em;
+    padding: .25em;
     position: relative;
 }
 
