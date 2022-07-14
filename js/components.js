@@ -1,33 +1,79 @@
-let Card = (txt, reminder, id) => {
+let Card = (txt, reminder) => {
     let div = document.createElement("div")
     div.classList.add("card")
-    div.id = id
     div.innerHTML = txt
     div.style.borderLeft = ".25em solid transparent"
-    if(reminder){
+    if (reminder) {
         div.style.borderColor = "green"
     }
     return div
 }
 
-let Modal = (txt) => {
-    
+let Modal = (txt, cb) => {
+
+    let modalBox = document.createElement("div")
+    let modalDialog = document.createElement("div")
+
+    modalDialog.classList.add("modal__dialog")
+    modalDialog.innerHTML = `
+        <div class="modal_inner">
+            <div class="modal__text">
+                ${txt}
+            </div>
+            <div class="modal__action">
+                <button class="modal__action btn ok">
+                    yes
+                </button>
+                <button class="modal__action btn cancel">
+                    no
+                </button>
+            </div>
+        </div>
+    `
+    modalBox.append(modalDialog)
+    modalBox.classList.add("modal")
+
+
+    let open = () => {
+        document.body.append(modalBox)
+    }
+    let close = () => {
+        if (document.getElementsByClassName("modal")[0])
+            document.getElementsByClassName("modal")[0].remove()
+    }
+    window.addEventListener("click", (evt) => {
+        if (evt.target.matches(".modal__action.btn.cancel")) {
+            close()
+        }
+        if (evt.target.matches(".modal__action.btn.ok")) {
+            if (cb) {
+                cb()
+            }
+            setTimeout(close, 100)
+        }
+    })
+
+    return {
+        open,
+        close
+    }
 }
 
-let StatusBar = (text, state="success")=> {
+
+let StatusBar = (text, state = "success") => {
     let div = document.querySelector(".status_bar")
     div.classList.add(state)
-    div.innerText = text   
-    if(text !== ""){
+    div.innerText = text
+    if (text !== "") {
         div.style.height = "2.5em"
     }
-    setTimeout(()=>{
+    setTimeout(() => {
         div.style.height = "0em"
-    },3800)
-    setTimeout(()=>{
-        div.innerText= ""
+    }, 3800)
+    setTimeout(() => {
+        div.innerText = ""
         div.classList.remove(state)
-    },4000)
+    }, 4000)
 }
 
 let MonthParser = (date) => {
@@ -63,7 +109,7 @@ let YearParser = (date) => {
 let TimeParser = (time) => {
     let hour = time.toString().split(":")[0]
     let minute = time.toString().split(":")[1]
-    let mainHour = (hour)=>{
+    let mainHour = (hour) => {
         return {
             "00": "12",
             "01": "1",
@@ -89,8 +135,8 @@ let TimeParser = (time) => {
             "21": "9",
             "22": "10",
             "23": "11",
-        }[hour]
-    } 
+        } [hour]
+    }
     let suffix = "am"
     if (hour === "12" && minute === "00") {
         suffix = "noon"
@@ -103,5 +149,3 @@ let TimeParser = (time) => {
 
     return mainHour(hour) + ":" + minute + suffix
 }
-
-

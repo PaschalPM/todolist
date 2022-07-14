@@ -13,7 +13,7 @@ let requestIndexedDB = () => {
         }) => {
             db = target.result
             store = db.createObjectStore(storeName, {
-                autoIncrement: true
+                keyPath:"createdAt"
             })
             index = store.createIndex(indexName, indexName, {
                 unique: false
@@ -78,12 +78,10 @@ let deleteData = async (id, cb) => {
         tx,
         store
     } = await requestIndexedDB()
-    console.log(store);
+    
     let deletedDataObj = store.delete(id)
 
-    deletedDataObj.onsuccess = ({
-        target
-    }) => {
+    deletedDataObj.onsuccess = () => {
         cb()
     }
     tx.oncomplete = () => {

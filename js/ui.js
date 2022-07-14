@@ -87,7 +87,6 @@ const UpdateTasksFromDBToUI = () => {
     mainDisplay.innerHTML = ""
     getAllData((res) => {
         res.sort((a,b)=>b.createdAt - a.createdAt)
-        console.log(res);
         if (res.length > 0) {
             mainDisplay.innerHTML = `<div class="main__trashBtn_holder">
                                         <button class="main__trashBtn" id="clear">T icon</button>
@@ -98,7 +97,7 @@ const UpdateTasksFromDBToUI = () => {
                 // DateTimeParser(date, time)
                 mainDisplay.append(Card(`
                     <span class="card__btn_holder"> 
-                        <button class="card__btn delete">x</button> 
+                        <button class="card__btn delete" id='${createdAt}'>x</button> 
                     </span>
                    
                     <div style="overflow:auto">
@@ -110,11 +109,10 @@ const UpdateTasksFromDBToUI = () => {
                             ${TimeParser(time)}
                         </small>
                     </div>
-                `,reminder,createdAt))
+                `,reminder))
             })
             
         } else {
-            console.log("ok");
             mainDisplay.innerHTML = `<i> No task available... </i>`
         }
 
@@ -126,6 +124,5 @@ window.onload = function () {
     TaskFormAndButtonToggleLogic()
     SetDefaultsForTaskForm()
     PostTask()
-    UpdateTasksFromDBToUI()
-    
+    UpdateTasksFromDBToUI()    
 }

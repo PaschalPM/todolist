@@ -1,71 +1,120 @@
 /*  UI Features that are dependent on data availability are also placed here */
 
-.main__trashBtn_holder{
-    text-align: right;
+.main__trashBtn_holder {
+  text-align: right;
 }
-.main__trashBtn{
-    all: unset;
-    cursor: pointer;
-    font-size: 1.25em;
-}
-
-.card{
-    background-color: #ccc;
-    padding: 1em 1em;
-    margin: 1em 0em;
-    box-shadow: 2px 2px 1px #777;
-    position: relative;
-    border-radius: .5em;
-    width: 100%;
-}
-.card small{
-    font-size: .75em;
+.main__trashBtn {
+  all: unset;
+  cursor: pointer;
+  font-size: 1.25em;
 }
 
-.card__btn_holder{
-    position: absolute;
-    top: .15em;
-    right: .25em;
+.card {
+  background-color: #ccc;
+  padding: 1em 1em;
+  margin: 1em 0em;
+  box-shadow: 2px 2px 1px #777;
+  position: relative;
+  border-radius: 0.5em;
+  width: 100%;
 }
-.card__btn{
-    all: unset;
-    margin: 0em .25em;
-    cursor: pointer;
-    font-size: 1.5em;
-}
-
-
-.status_bar{
-
-    position: fixed;
-    height: 0em;
-    bottom: 0px;
-    left: 50%;
-    display: flex;
-    width: 100%;
-    align-items: center;
-    justify-content: center;
-    transform: translateX(-50%);
-    background-color: rgba(74, 136, 87, 0.5);
-    padding: 0em 1.2em;
-    transition: height .2s linear 0s;
-    transform-origin: top left;
-    overflow: none;
-    color: white;
-    overflow: none;
-    z-index: 3;
-    font-size: .75rem;
-    font-weight: 700;
+.card small {
+  font-size: 0.75em;
 }
 
-.status_bar.success{
-    background-color: rgb(4, 131, 4,.75);
-
+.card__btn_holder {
+  position: absolute;
+  top: 0.15em;
+  right: 0.25em;
 }
-.status_bar.error{
-    background-color: rgb(246, 8, 8,.75);
+.card__btn {
+  all: unset;
+  margin: 0em 0.25em;
+  cursor: pointer;
+  font-size: 1.5em;
 }
 
-/* .status_bar:empty{
-    height: 0;
-} */
+.status_bar {
+  position: fixed;
+  height: 0em;
+  bottom: 0px;
+  left: 50%;
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  transform: translateX(-50%);
+  background-color: rgba(74, 136, 87, 0.5);
+  padding: 0em 1.2em;
+  transition: height 0.2s linear 0s;
+  transform-origin: top left;
+  overflow: none;
+  color: white;
+  overflow: none;
+  z-index: 3;
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+.status_bar.success {
+  background-color: rgb(4, 131, 4, 0.75);
+}
+.status_bar.error {
+  background-color: rgb(246, 8, 8, 0.75);
+}
+
+.modal {
+  background-color: rgba(50, 50, 50, 0.75);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.modal__dialog {
+  background-color: #333;
+  min-width: 350px;
+  width: 40%;
+  height: 150px;
+  color: white;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal__text{
+  color:white;
+  text-align: center;
+  font-size: 1.05em;
+}
+
+.modal__action{
+  text-align: center;
+  margin: 1em;
+}
+
+.modal__action.btn{
+  all: unset;
+  padding:.5em 1em;
+  border-radius: .5em;
+  color: white;
+  background-color: blue;
+  margin: 0em .5em;
+  cursor: pointer;
+}
+
+.modal__action.btn:active{
+  transform: scale(90%,90%);
+}
+
+.modal__action.btn.cancel{
+  background-color: red;
+}
+.modal__action.btn.ok{
+  background-color: green;
+}
